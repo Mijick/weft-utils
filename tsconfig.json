@@ -3,23 +3,14 @@
         "target": "esnext",
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
-        "outDir": "dist",
-        "rootDir": ".",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "declaration": true,
         "strict": true,
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true,
-        "types": [
-            "node"
-        ]
+        "types": ["node"]
     },
     "include": [
         "src"
-    ],
-    "exclude": [
-        "node_modules",
-        "dist"
     ]
 }
