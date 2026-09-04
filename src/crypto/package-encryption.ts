@@ -2,17 +2,11 @@ import { createCipheriv, randomBytes, hkdfSync } from "node:crypto"
 import { PackageManifest } from "./types.js"
 
 
-
-
-
-
-
-
-
 // MARK: Derive Package Key
-export function derivePackageKey(manifest: PackageManifest) {
-    const info = Buffer.from(`${id}@${version}`)
-    const derived = hkdfSync("sha256", masterKey, Buffer.alloc(0), info, 32)
+type DerivePackageKeyArgs = { masterKey: string; manifest: PackageManifest }
+export function derivePackageKey(args: DerivePackageKeyArgs) {
+    const info = Buffer.from(`${args.manifest.id}@${args.manifest.version}`)
+    const derived = hkdfSync("sha256", args.masterKey, Buffer.alloc(0), info, 32)
     return Buffer.from(derived)
 }
 
