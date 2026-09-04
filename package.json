@@ -1,0 +1,12 @@
+{
+    "name": "weft-utils",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "src/index.ts",
+    "types": "src/index.ts",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^26.4.1",
+        "typescript": "^5.5.4"
+    }
+}
