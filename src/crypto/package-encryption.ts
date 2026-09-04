@@ -6,10 +6,7 @@ import { PackageManifest } from "./types.js"
 type DerivePackageKeyArgs = { masterKey: string; manifest: PackageManifest }
 export function derivePackageKey(args: DerivePackageKeyArgs): Buffer {
     const masterKeyBytes = Buffer.from(args.masterKey, "base64")
-
-    if (masterKeyBytes.length !== 32) {
-        throw new Error(`masterKey must decode to 32 bytes, got ${masterKeyBytes.length}`)
-    }
+    if (masterKeyBytes.length !== 32) throw new Error(`masterKey must decode to 32 bytes, got ${masterKeyBytes.length}`)
 
     const info = Buffer.from(`${args.manifest.id}@${args.manifest.version}`)
     const derived = hkdfSync("sha256", masterKeyBytes, Buffer.alloc(0), info, 32)
