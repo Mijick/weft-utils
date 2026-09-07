@@ -1,2 +1,2 @@
-export { derivePackageKey, encryptPackage } from "./package-encryption.js"
-export { createSignature } from "./signature.js"
+export { derivePackageKey, encryptPackage } from "./encryption.js"
+export { signPackage } from "./signing.js"
